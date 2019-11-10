@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset ="UTF-8">
+        <title>LAB 8</title>
+    </head>
+    
+    <body>
+    </body>
+    
+    <script>
+        let num = parseInt(prompt("Enter a number between 0 to 26"));
+        function alphaButtons(){
+            for(let i = 0; i < num; i++){
+                let btn = document.createElement("BUTTON");
+                let letter = String.fromCharCode(65 + i);
+                btn.innerHTML = letter;
+                document.body.appendChild(btn);
+                btn.onclick = function(){
+                    console.log("Button " + letter + " was clicked.");
+                };
+            }
+        }
+        
+        function Myrecipe(title, servings, ingredients){
+            this.title = title;
+            this.servings = servings;
+            this.ingredients = ingredients;
+            this.print = function(){
+                document.write("<p>Title: "+ this.title +"</p>");
+                document.write("<p>Serves: "+ this.servings +"</p>");
+                document.write("<p>Ingredients:</p>");
+                for(let i = 0; i < this.ingredients.length; i++){
+                    document.write("<p>" + this.ingredients[i] + "</p>");
+                }
+            }
+            
+            
+        }
+        
+        alphaButtons();
+        myObj = new Myrecipe ("GhirmehSabzi", 2, ["cinnamon", "lettuce", "onion"] );
+        myObj.print();
+        
+        
+    </script>
+    
+</html>
